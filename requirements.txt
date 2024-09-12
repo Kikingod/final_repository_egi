@@ -35,6 +35,7 @@ Flask==3.0.3
 Flask-Cors==4.0.1
 flask-sock==0.7.0
 flask_sqlalchemy
+flask_login
 flatbuffers==24.3.25
 frozenlist==1.4.1
 fsspec==2024.6.1
