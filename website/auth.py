@@ -36,7 +36,7 @@ def login():
                 flash('log in succesfolu', category='sucess')
                 login_user(user, remember=True)#if server running user is logged
                 
-                return render_template('home.html')
+                return render_template('home.html', user = current_user)
             else:
                 flash('incoret password', category='error')
         else:
@@ -90,11 +90,13 @@ def signin():
 
 
 @auth.route('/api/chat', methods=['POST']) 
-def chat():
-    thread_id = 158 
+def chat(): 
     try:
         user_message = request.json.get('message')
         print(f'Received message: {user_message}')
+        if str(current_user)[1] == 'U':
+            thread_id  = current_user
+        else: thread_id = session['user_id']
         
         response = get_user_responses([user_message], thread_id=thread_id)
 
@@ -111,6 +113,12 @@ def chat():
 
             
             
+                 
+            
+
+@auth.route('/home', methods=['GET', 'POST'])
+def home():
+     return render_template('home.html', user=current_user)
                  
             
 
