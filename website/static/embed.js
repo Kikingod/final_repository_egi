@@ -288,7 +288,7 @@
             chatbox.scrollTop = chatbox.scrollHeight;
         
             // Start the fetch API call
-            fetch(`https://final-repository-egi-9.onrender.com/api/chat`, {
+            fetch(`https://final-repository-egi-10.onrender.com/api/chat`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: message }),
